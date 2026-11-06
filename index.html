@@ -654,7 +654,7 @@
       .collage { gap: 14px; }
       .music-btn { right: 28px; bottom: 28px; }
     }
-    .cover-couple{display:block;width:min(78vw,340px);height:auto;margin:24px auto 28px;border-radius:6px;box-shadow:0 10px 30px rgba(80,60,40,.12);}
+    .cover-couple{display:block;width:min(78vw,340px);height:auto;margin:8px auto 0;-webkit-mask-image:radial-gradient(ellipse 70% 72% at 50% 48%,#000 55%,transparent 100%);mask-image:radial-gradient(ellipse 70% 72% at 50% 48%,#000 55%,transparent 100%);}
   .cover{height:auto !important;min-height:100vh;padding-top:24px;padding-bottom:70px;}
 </style>
 </head>
@@ -678,7 +678,6 @@
 
   <!-- 1. Cover -->
   <header class="cover" id="top">
-    <img class="cover-couple reveal" src="assets/couple.jpg" alt="Виктория и Дмитрий" width="576" height="1024" />
     <p class="cover-label reveal">Приглашение</p>
     <h1 class="cover-title reveal">на свадьбу</h1>
     <div class="cover-ornament reveal"></div>
@@ -690,6 +689,7 @@
       23 декабря 2026
       <span class="cover-weekday">среда</span>
     </p>
+    <img class="cover-couple reveal" src="assets/couple.jpg" alt="Виктория и Дмитрий" width="576" height="1024" />
     <div class="scroll-hint">вниз</div>
   </header>
 
