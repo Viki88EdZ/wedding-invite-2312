@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#f5f0e8" />
+  <title>Виктория & Дмитрий — 23.12.2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Great+Vibes&family=Marck+Script&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f5f0e8;
+      --bg-soft: #ebe4d8;
+      --bg-card: #faf7f2;
+      --text: #3a3732;
+      --text-muted: #6b6560;
+      --line: #d4cbbd;
+      --accent: #8a7a66;
+      --btn: #4a443c;
+      --btn-hover: #2e2a26;
+      --white: #fffefb;
+      --radius: 14px;
+      --shadow: 0 8px 28px rgba(58, 55, 50, 0.08);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "Montserrat", system-ui, sans-serif;
+      font-weight: 300;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; display: block; }
+
+    a { color: inherit; }
+
+    .wrap {
+      width: min(100%, 560px);
+      margin: 0 auto;
+      padding: 0 22px;
+    }
+
+    /* —— Typography —— */
+    .serif { font-family: "Cormorant Garamond", Georgia, serif; }
+    .script { font-family: "Marck Script", "Great Vibes", cursive; }
+    .script-en { font-family: "Great Vibes", "Marck Script", cursive; }
+
+    h1, h2, h3 { font-weight: 400; letter-spacing: 0.02em; }
+
+    /* —— Reveal animation —— */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.85s ease, transform 0.85s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* —— Cover —— */
+    .cover {
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 22px 80px;
+      position: relative;
+      background:
+        radial-gradient(ellipse at 50% 0%, #fff9f0 0%, transparent 55%),
+        var(--bg);
+    }
+
+    .cover-ornament {
+      width: 48px;
+      height: 1px;
+      background: var(--line);
+      margin: 18px auto;
+      position: relative;
+    }
+    .cover-ornament::before,
+    .cover-ornament::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 5px;
+      height: 5px;
+      border: 1px solid var(--accent);
+      border-radius: 50%;
+      transform: translateY(-50%) rotate(45deg);
+      background: var(--bg);
+    }
+    .cover-ornament::before { left: -10px; }
+    .cover-ornament::after { right: -10px; }
+
+    .cover-label {
+      font-family: "Marck Script", cursive;
+      font-size: clamp(1.6rem, 5vw, 2rem);
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .cover-title {
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 300;
+      font-size: clamp(1.15rem, 3.5vw, 1.35rem);
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+    }
+
+    .cover-names {
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 300;
+      font-size: clamp(2.4rem, 9vw, 3.4rem);
+      line-height: 1.15;
+      color: var(--text);
+    }
+
+    .cover-amp {
+      font-family: "Great Vibes", cursive;
+      font-size: 0.55em;
+      color: var(--accent);
+      display: inline-block;
+      margin: 0 0.15em;
+      vertical-align: middle;
+    }
+
+    .cover-date {
+      margin-top: 28px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.15rem;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+    }
+
+    .cover-weekday {
+      display: block;
+      margin-top: 4px;
+      font-family: "Montserrat", sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      opacity: 0.7;
+      animation: bob 2.2s ease-in-out infinite;
+    }
+    @keyframes bob {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* —— Sections —— */
+    section {
+      padding: 72px 0;
+    }
+
+    section + section {
+      border-top: 1px solid transparent;
+    }
+
+    .section-label {
+      font-family: "Great Vibes", cursive;
+      font-size: 1.7rem;
+      color: var(--accent);
+      text-align: center;
+      margin-bottom: 6px;
+    }
+
+    .section-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.6rem, 5vw, 2rem);
+      text-align: center;
+      margin-bottom: 28px;
+      font-weight: 400;
+    }
+
+    .greeting {
+      text-align: center;
+      font-size: 0.98rem;
+      color: var(--text);
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    .greeting p + p { margin-top: 16px; }
+
+    /* —— Big date —— */
+    .big-date {
+      padding: 56px 0 40px;
+      text-align: center;
+      background: linear-gradient(180deg, transparent, var(--bg-soft) 40%, transparent);
+    }
+
+    .big-date-nums {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(10px, 4vw, 22px);
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 300;
+      font-size: clamp(3.2rem, 14vw, 5rem);
+      letter-spacing: 0.06em;
+      line-height: 1;
+      color: var(--text);
+    }
+
+    .big-date-nums span.sep {
+      font-size: 0.35em;
+      color: var(--accent);
+      letter-spacing: 0;
+      align-self: center;
+    }
+
+    .big-date-caption {
+      margin-top: 14px;
+      font-size: 0.75rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* —— Collage —— */
+    .collage {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .collage figure {
+      overflow: hidden;
+      border-radius: 10px;
+      background: var(--bg-soft);
+      aspect-ratio: 1;
+    }
+
+    .collage figure:first-child {
+      grid-column: 1 / -1;
+      aspect-ratio: 16 / 10;
+    }
+
+    .collage img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(0.55) contrast(0.95) brightness(1.02) sepia(0.12);
+      transition: transform 0.8s ease, filter 0.5s ease;
+    }
+
+    .collage figure:hover img {
+      transform: scale(1.04);
+      filter: grayscale(0.25) contrast(1) brightness(1.03) sepia(0.08);
+    }
+
+    /* —— Timing —— */
+    .timeline {
+      list-style: none;
+      position: relative;
+      padding: 8px 0 0;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 18px;
+      top: 12px;
+      bottom: 12px;
+      width: 1px;
+      background: var(--line);
+    }
+
+    .timeline li {
+      position: relative;
+      padding: 0 0 32px 52px;
+    }
+
+    .timeline li:last-child { padding-bottom: 0; }
+
+    .timeline li::before {
+      content: "";
+      position: absolute;
+      left: 12px;
+      top: 8px;
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      border: 1.5px solid var(--accent);
+      background: var(--bg);
+      box-shadow: 0 0 0 4px var(--bg);
+    }
+
+    .t-time {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.55rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--text);
+      line-height: 1.2;
+    }
+
+    .t-title {
+      font-size: 0.95rem;
+      font-weight: 400;
+      margin-top: 4px;
+      color: var(--text);
+    }
+
+    .t-place {
+      font-size: 0.82rem;
+      color: var(--accent);
+      margin-top: 2px;
+    }
+
+    .t-note {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 6px;
+      font-style: italic;
+    }
+
+    /* —— Locations —— */
+    .loc-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .loc-card {
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .loc-card h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.35rem;
+      margin-bottom: 6px;
+    }
+
+    .loc-card .role {
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .loc-card .addr {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 999px;
+      border: 1px solid var(--btn);
+      background: var(--btn);
+      color: var(--white);
+      font-family: "Montserrat", sans-serif;
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+    }
+
+    .btn:hover {
+      background: var(--btn-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(58, 55, 50, 0.18);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--btn);
+    }
+
+    .btn-outline:hover {
+      background: var(--btn);
+      color: var(--white);
+    }
+
+    .btn-block { width: 100%; }
+
+    /* —— Tips —— */
+    .tips {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .tip {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 18px 18px 18px 20px;
+      border-left: 3px solid var(--accent);
+      box-shadow: var(--shadow);
+    }
+
+    .tip h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.2rem;
+      margin-bottom: 4px;
+    }
+
+    .tip p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .contact-box {
+      margin-top: 22px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      padding: 18px;
+      border: 1px dashed var(--line);
+      border-radius: var(--radius);
+    }
+
+    /* —— Chat —— */
+    .chat-block {
+      text-align: center;
+      background: var(--bg-soft);
+      border-radius: 18px;
+      padding: 36px 24px;
+    }
+
+    .chat-block p {
+      font-size: 0.95rem;
+      margin-bottom: 22px;
+      max-width: 360px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* —— RSVP form —— */
+    .rsvp-card {
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 28px 22px 32px;
+      box-shadow: var(--shadow);
+    }
+
+    .rsvp-meta {
+      text-align: center;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .field {
+      margin-bottom: 18px;
+    }
+
+    .field label {
+      display: block;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 7px;
+    }
+
+    .field input,
+    .field select {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--white);
+      font-family: "Montserrat", sans-serif;
+      font-weight: 300;
+      font-size: 0.95rem;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .field select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%238a7a66' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+    }
+
+    .field input:focus,
+    .field select:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(138, 122, 102, 0.15);
+    }
+
+    .checks {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .check {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .check input {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      border: 1.5px solid var(--line);
+      border-radius: 4px;
+      background: var(--white);
+      flex-shrink: 0;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .check input:checked {
+      background: var(--btn);
+      border-color: var(--btn);
+    }
+
+    .check input:checked::after {
+      content: "";
+      position: absolute;
+      left: 5px;
+      top: 1px;
+      width: 5px;
+      height: 10px;
+      border: solid var(--white);
+      border-width: 0 1.5px 1.5px 0;
+      transform: rotate(45deg);
+    }
+
+    .form-msg {
+      margin-top: 16px;
+      text-align: center;
+      font-size: 0.9rem;
+      min-height: 1.4em;
+      display: none;
+    }
+
+    .form-msg.show { display: block; }
+    .form-msg.ok { color: #3d6b4f; }
+    .form-msg.err { color: #8a4a3a; }
+
+    /* —— Footer —— */
+    footer {
+      padding: 56px 22px 100px;
+      text-align: center;
+    }
+
+    footer .names {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.5rem;
+      margin-top: 8px;
+    }
+
+    footer .love {
+      font-family: "Great Vibes", cursive;
+      font-size: 1.5rem;
+      color: var(--accent);
+    }
+
+    /* —— Music button —— */
+    .music-btn {
+      position: fixed;
+      right: 16px;
+      bottom: 20px;
+      z-index: 100;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      background: rgba(250, 247, 242, 0.92);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 6px 20px rgba(58, 55, 50, 0.14);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text);
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .music-btn:hover { transform: scale(1.06); }
+    .music-btn svg { width: 22px; height: 22px; }
+
+    .music-btn.playing .icon-play { display: none; }
+    .music-btn:not(.playing) .icon-pause { display: none; }
+
+    .music-btn.playing::after {
+      content: "";
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      border: 1px solid var(--accent);
+      opacity: 0.45;
+      animation: pulse 2s ease-out infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.45; }
+      100% { transform: scale(1.25); opacity: 0; }
+    }
+
+    /* Desktop polish */
+    @media (min-width: 700px) {
+      .wrap { width: min(100%, 640px); padding: 0 28px; }
+      section { padding: 88px 0; }
+      .collage { gap: 14px; }
+      .music-btn { right: 28px; bottom: 28px; }
+    }
+    .cover-couple{display:block;width:min(78vw,340px);height:auto;margin:24px auto 28px;border-radius:6px;box-shadow:0 10px 30px rgba(80,60,40,.12);}
+  .cover{height:auto !important;min-height:100vh;padding-top:24px;padding-bottom:70px;}
+</style>
+</head>
+<body>
+
+  <!-- Music -->
+  <audio id="bgMusic" loop preload="none" src="assets/music.mp3"></audio>
+  <button type="button" class="music-btn" id="musicBtn" aria-label="Включить музыку" title="Музыка">
+    <svg class="icon-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M9 18V5l12-2v13" />
+      <circle cx="6" cy="18" r="3" />
+      <circle cx="18" cy="16" r="3" />
+    </svg>
+    <svg class="icon-pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M9 18V5l12-2v13" />
+      <circle cx="6" cy="18" r="3" />
+      <circle cx="18" cy="16" r="3" />
+      <line x1="4" y1="4" x2="20" y2="20" />
+    </svg>
+  </button>
+
+  <!-- 1. Cover -->
+  <header class="cover" id="top">
+    <img class="cover-couple reveal" src="assets/couple.jpg" alt="Виктория и Дмитрий" width="576" height="1024" />
+    <p class="cover-label reveal">Приглашение</p>
+    <h1 class="cover-title reveal">на свадьбу</h1>
+    <div class="cover-ornament reveal"></div>
+    <p class="cover-names reveal">
+      Виктория <span class="cover-amp">&</span> Дмитрий
+    </p>
+    <div class="cover-ornament reveal"></div>
+    <p class="cover-date reveal">
+      23 декабря 2026
+      <span class="cover-weekday">среда</span>
+    </p>
+    <div class="scroll-hint">вниз</div>
+  </header>
+
+  <!-- 2. Greeting -->
+  <section id="greeting">
+    <div class="wrap">
+      <p class="section-label reveal script-en">Love</p>
+      <h2 class="section-title reveal">Дорогие родные и близкие!</h2>
+      <div class="greeting reveal">
+        <p>Позвольте пригласить вас разделить с нами столь важный день — торжество, посвящённое нашему бракосочетанию!</p>
+        <p>Мы будем рады разделить с вами самые яркие моменты!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Big date -->
+  <section class="big-date" id="date">
+    <div class="wrap reveal">
+      <div class="big-date-nums" aria-label="23 декабря 2026">
+        <span>23</span>
+        <span class="sep">·</span>
+        <span>12</span>
+        <span class="sep">·</span>
+        <span>26</span>
+      </div>
+      <p class="big-date-caption">день нашей свадьбы</p>
+    </div>
+  </section>
+
+  <!-- 4. Photo collage -->
+  <section id="photos">
+    <div class="wrap">
+      <p class="section-label reveal">Моменты</p>
+      <h2 class="section-title reveal">Атмосфера праздника</h2>
+      <div class="collage reveal">
+        <figure>
+          <img src="assets/collage1.jpg" alt="Обручальные кольца" loading="lazy" width="800" height="500" />
+        </figure>
+        <figure>
+          <img src="assets/collage2.jpg" alt="Свадебный букет" loading="lazy" width="400" height="400" />
+        </figure>
+        <figure>
+          <img src="assets/collage3.jpg" alt="Свадебный декор стола" loading="lazy" width="400" height="400" />
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Timing -->
+  <section id="timing">
+    <div class="wrap">
+      <p class="section-label reveal">Программа</p>
+      <h2 class="section-title reveal">Тайминг дня</h2>
+      <ol class="timeline">
+        <li class="reveal">
+          <div class="t-time">15:00</div>
+          <div class="t-title">Встреча гостей</div>
+          <div class="t-place">отель ibis Краснодар Центр</div>
+          <p class="t-note">Соберёмся вместе, обменяемся улыбками и настроимся на волшебный день.</p>
+        </li>
+        <li class="reveal">
+          <div class="t-time">16:00</div>
+          <div class="t-title">Бракосочетание</div>
+          <div class="t-place">Екатерининский ЗАГС</div>
+          <p class="t-note">Самый трогательный момент — когда мы скажем друг другу «да».</p>
+        </li>
+        <li class="reveal">
+          <div class="t-time">16:30</div>
+          <div class="t-title">Фуршет и фотосъёмка с родителями</div>
+          <div class="t-place">после церемонии</div>
+          <p class="t-note">Тёплые объятия, бокал шампанского и кадры на память с самыми близкими.</p>
+        </li>
+        <li class="reveal">
+          <div class="t-time">17:00</div>
+          <div class="t-title">Свадебный ужин</div>
+          <div class="t-place">ресторан «Панорама», отель Marriott Краснодар</div>
+          <p class="t-note">Вечер с видом на город, вкусной едой и танцами до поздней ночи.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 6. Locations -->
+  <section id="locations">
+    <div class="wrap">
+      <p class="section-label reveal">Карта</p>
+      <h2 class="section-title reveal">Локации</h2>
+      <div class="loc-cards">
+        <article class="loc-card reveal">
+          <div class="role">Встреча гостей · 15:00</div>
+          <h3>ibis Краснодар Центр</h3>
+          <p class="addr">г. Краснодар, ул. им. Володи Головатого, д. 306<br />(перекрёсток с ул. Красноармейской, 128)</p>
+          <a class="btn btn-outline" target="_blank" rel="noopener noreferrer"
+             href="https://yandex.ru/maps/?text=ibis%20Краснодар%20Центр%20Володи%20Головатого%20306">
+            Открыть на карте
+          </a>
+        </article>
+        <article class="loc-card reveal">
+          <div class="role">Бракосочетание · 16:00</div>
+          <h3>Екатерининский ЗАГС</h3>
+          <p class="addr">г. Краснодар, ул. Офицерская, д. 47<br />Дворец бракосочетания «Екатерининский зал»</p>
+          <a class="btn btn-outline" target="_blank" rel="noopener noreferrer"
+             href="https://yandex.ru/maps/?text=Екатерининский%20ЗАГС%20Офицерская%2047%20Краснодар">
+            Открыть на карте
+          </a>
+        </article>
+        <article class="loc-card reveal">
+          <div class="role">Свадебный ужин · 17:00</div>
+          <h3>Ресторан «Панорама»</h3>
+          <p class="addr">отель Marriott Krasnodar<br />г. Краснодар, ул. Красная, д. 120</p>
+          <a class="btn btn-outline" target="_blank" rel="noopener noreferrer"
+             href="https://yandex.ru/maps/?text=Marriott%20Krasnodar%20Красная%20120">
+            Открыть на карте
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Tips -->
+  <section id="tips">
+    <div class="wrap">
+      <p class="section-label reveal">Для гостей</p>
+      <h2 class="section-title reveal">Подсказки</h2>
+      <div class="tips">
+        <div class="tip reveal">
+          <h3>Цветы</h3>
+          <p>Вместо букета — бутылочка в нашу семейную винотеку. Так вы подарите нам воспоминание, которое мы откроем в особенный день.</p>
+        </div>
+        <div class="tip reveal">
+          <h3>Подарки</h3>
+          <p>Самый желанный подарок — ваш конверт. Он поможет нам начать новую главу.</p>
+        </div>
+        <div class="tip reveal">
+          <h3>Маленькие гости</h3>
+          <p>Если планируете приехать с детьми — пожалуйста, предупредите нас заранее, чтобы мы всё подготовили.</p>
+        </div>
+        <div class="tip reveal">
+          <h3>Поздравления</h3>
+          <p>Будет открытый микрофон — но никого не заставляем говорить тосты. Достаточно тёплых слов и улыбок.</p>
+        </div>
+        <div class="tip reveal">
+          <h3>Сюрпризы</h3>
+          <p>Хотите устроить сюрприз? Согласуйте его заранее с нами — так всё пройдёт гармонично.</p>
+        </div>
+        <div class="tip reveal">
+          <h3>Важно</h3>
+          <p>Декабрь! Возьмите тёплую верхнюю одежду для переездов между локациями — вечер может быть прохладным.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Max chat -->
+  <section id="chat">
+    <div class="wrap">
+      <div class="chat-block reveal">
+        <p class="section-label">Чат</p>
+        <h2 class="section-title" style="margin-bottom:16px">Гостевой чат</h2>
+        <p>Мы создали чат нашего праздника в мессенджере Max — присоединяйтесь, чтобы делиться фото и видео, не терять важные новости и быть на связи в день свадьбы.</p>
+        <a class="btn" href="https://max.ru/join/CatudFPISSq21MKCaFFwic7AjkOJ7aDWVN-eB_pKADU" id="maxChatLink">Перейти в чат</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. RSVP -->
+  <section id="rsvp">
+    <div class="wrap">
+      <p class="section-label reveal">RSVP</p>
+      <h2 class="section-title reveal">Анкета гостя</h2>
+      <div class="rsvp-card reveal">
+        <p class="rsvp-meta">23 декабря · Среда · Marriott Краснодар</p>
+        <form id="rsvpForm" novalidate>
+          <div class="field">
+            <label for="guestName">Имя и фамилия</label>
+            <input type="text" id="guestName" name="guestName" required autocomplete="name" placeholder="Как к вам обращаться" />
+          </div>
+          <div class="field">
+            <label for="partnerName">Имя партнёра (если будете с парой)</label>
+            <input type="text" id="partnerName" name="partnerName" autocomplete="off" placeholder="Необязательно" />
+          </div>
+          <div class="field">
+            <label for="attendance">Присутствие</label>
+            <select id="attendance" name="attendance" required>
+              <option value="" disabled selected>Выберите вариант</option>
+              <option value="Я приду">Я приду</option>
+              <option value="Мы придём">Мы придём</option>
+              <option value="К сожалению, не смогу">К сожалению, не смогу</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Предпочтения по напиткам</label>
+            <div class="checks">
+              <label class="check"><input type="checkbox" name="drinks" value="Шампанское" /> Шампанское</label>
+              <label class="check"><input type="checkbox" name="drinks" value="Вино красное" /> Вино красное</label>
+              <label class="check"><input type="checkbox" name="drinks" value="Вино белое" /> Вино белое</label>
+              <label class="check"><input type="checkbox" name="drinks" value="Вино розовое" /> Вино розовое</label>
+              <label class="check"><input type="checkbox" name="drinks" value="Коньяк" /> Коньяк</label>
+              <label class="check"><input type="checkbox" name="drinks" value="Не буду пить алкоголь" /> Не буду пить алкоголь</label>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-block" id="submitBtn">Отправить</button>
+          <p class="form-msg" id="formMsg" role="status"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. Footer -->
+  <footer>
+    <div class="wrap reveal">
+      <div class="cover-ornament" style="margin-bottom:20px"></div>
+      <p class="love">С любовью</p>
+      <p class="names">Ваши Виктория и Дмитрий</p>
+    </div>
+  </footer>
+
+  <script>
+    /* ========== PLACEHOLDERS — замените перед публикацией ========== */
+    const TG_TOKEN = "9278186039:AAFg6nzoJvjmDx9whMCn384Fh6NGgKWWHD0";
+    const TG_CHAT = "1395306351";
+    /* MAX_CHAT_LINK — замените href у #maxChatLink */
+    /* assets/music.mp3 — трек «Love Is All Around» уже подключён */
+    /* =============================================================== */
+
+    // Reveal on scroll
+    const revealEls = document.querySelectorAll(".reveal");
+    if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+              io.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+      );
+      revealEls.forEach((el) => io.observe(el));
+    } else {
+      revealEls.forEach((el) => el.classList.add("visible"));
+    }
+
+    // Cover reveals immediately
+    document.querySelectorAll(".cover .reveal").forEach((el, i) => {
+      setTimeout(() => el.classList.add("visible"), 120 + i * 140);
+    });
+
+    // Music: no autoplay — first tap / button
+    const audio = document.getElementById("bgMusic");
+    const musicBtn = document.getElementById("musicBtn");
+    let musicStarted = false;
+
+    async function toggleMusic() {
+      try {
+        if (audio.paused) {
+          await audio.play();
+          musicBtn.classList.add("playing");
+          musicBtn.setAttribute("aria-label", "Выключить музыку");
+          musicStarted = true;
+        } else {
+          audio.pause();
+          musicBtn.classList.remove("playing");
+          musicBtn.setAttribute("aria-label", "Включить музыку");
+        }
+      } catch (err) {
+        console.warn("Audio play blocked or file missing:", err);
+        musicBtn.classList.remove("playing");
+      }
+    }
+
+    musicBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      toggleMusic();
+    });
+
+    // First user gesture can start music (optional soft start via button only —
+    // we keep it button-driven to respect mobile autoplay rules)
+    document.body.addEventListener(
+      "touchstart",
+      function once() {
+        // unlock audio context on first touch; do not auto-play until button
+        if (!musicStarted) {
+          try {
+            audio.load();
+          } catch (_) {}
+        }
+      },
+      { once: true, passive: true }
+    );
+
+    // RSVP → Telegram
+    const form = document.getElementById("rsvpForm");
+    const formMsg = document.getElementById("formMsg");
+    const submitBtn = document.getElementById("submitBtn");
+
+    function showMsg(text, type) {
+      formMsg.textContent = text;
+      formMsg.className = "form-msg show " + type;
+    }
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      formMsg.className = "form-msg";
+
+      const name = document.getElementById("guestName").value.trim();
+      const partner = document.getElementById("partnerName").value.trim();
+      const attendance = document.getElementById("attendance").value;
+      const drinks = [...document.querySelectorAll('input[name="drinks"]:checked')].map((c) => c.value);
+
+      if (!name || !attendance) {
+        showMsg("Пожалуйста, заполните имя и присутствие.", "err");
+        return;
+      }
+
+      if (
+        !TG_TOKEN ||
+        TG_TOKEN === "YOUR_TELEGRAM_BOT_TOKEN" ||
+        !TG_CHAT ||
+        TG_CHAT === "YOUR_TELEGRAM_CHAT_ID"
+      ) {
+        showMsg("Отправка пока не настроена. Пожалуйста, напишите нам напрямую.", "err");
+        return;
+      }
+
+      const lines = [
+        "💍 Анкета гостя — свадьба Виктория & Дмитрий",
+        "📅 23 декабря 2026 · Marriott Краснодар",
+        "",
+        "👤 Имя: " + name,
+        partner ? "👥 Пара: " + partner : null,
+        "✅ Присутствие: " + attendance,
+        "🥂 Напитки: " + (drinks.length ? drinks.join(", ") : "не указано"),
+      ].filter(Boolean);
+
+      const text = lines.join("\n");
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Отправляем…";
+
+      try {
+        const url =
+          "https://api.telegram.org/bot" +
+          TG_TOKEN +
+          "/sendMessage";
+        const res = await fetch(url, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            chat_id: TG_CHAT,
+            text: text,
+            disable_web_page_preview: true,
+          }),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok || !data.ok) {
+          throw new Error((data && data.description) || "Ошибка API");
+        }
+        showMsg("Спасибо! Ваш ответ получен", "ok");
+        form.reset();
+      } catch (err) {
+        console.error(err);
+        showMsg("Не удалось отправить. Попробуйте позже или напишите нам.", "err");
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Отправить";
+      }
+    });
+  </script>
+</body>
+</html>
